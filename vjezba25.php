@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cjena popusti</title>
+    <style>
+        .border{
+            border: 1px solid red;
+        }
+     </style>
+</head>
+<body>
+    
+    <?php
+        $price = mt_rand (10,100);
+        $isNew = mt_rand (0,1) == 1;
+        $discont = 0.2;
+        $class = "";
+
+
+        //Zavrseno ispitivanje da li je proizvod nov
+        if($isNew){
+            $class = "class='border' ";
+        }
+
+        //Ispitivanje da li je proizvod sa ili bez popusta
+        if($price >50){
+            $discontPrice = $price * $discont;
+            echo "<h1> The item is  on discont " . 
+                "<span {$class}>" . 
+                $discontPrice . 
+                "BAM" . 
+                "<del> (" . 
+                $price . 
+                ")</del>" . 
+                "</span>" . 
+                "</h1>";
+        }else{
+            echo "<h1>The item is not on discont: " . 
+            "<span {$class}>" . 
+            $price . 
+            " BAM" . 
+            "</span>" . 
+            "<h1>";
+
+        }
+    ?>
+</body>
+</html>
